@@ -1,0 +1,43 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.cabecera {
+    display: flex;
+    flex-direction: row;
+}
+.transparencia {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    opacity: 0.6;
+    background-color: white;
+    z-index: 1;
+}
+.caratula {
+    margin-top:20px;
+    margin-left: 40px;
+    z-index: 2;
+}
+
+.info {
+    margin-left: 10px;
+    z-index: 2;
+}
+
+.imgCaratula {
+    border-radius: 10px;
+}
+
+.last_season {
+    display: flex;
+    flex-direction: row;
+    background-color: darkgrey;
+}
+
+
+.info_season {
+    margin-left: 10px;
+    z-index: 2;
+}

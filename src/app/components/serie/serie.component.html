@@ -1,0 +1,64 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<div class="body" *ngIf="!loading">
+    <div class="cabecera" [ngStyle]="{'background-image': 'url('+ urlFondo +')', 'background-size': 'cover'}">
+        <div class="caratula">
+            <img class="imgCaratula" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ serie.poster_path }}">
+        </div>
+        <div class="info">
+            <h2>{{ serie.name }}</h2>
+            
+            <p> {{ serie.overview}}</p>
+            <mat-chip-list aria-label="Fish selection">
+                    Puntuación del público: 
+                    <mat-chip color="primary" selected>
+                    {{ serie.vote_average}}
+                </mat-chip>
+            </mat-chip-list>
+            <app-puntuacion [puntuacion]="serie.vote_average"></app-puntuacion>
+            <mat-chip-list>
+                Generos:
+                <mat-chip *ngFor="let genero of serie.genres">
+                    {{ genero.name }}
+                </mat-chip>
+            </mat-chip-list>
+            
+        </div>
+        <div class="transparencia">
+
+       </div>
+    </div>
+    <h3>Última temporada</h3>
+    <div class="last_season">
+    
+        <div class="caratula">
+            <img class=imgCaratula *ngIf="lastSeason.poster_path" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ lastSeason.poster_path }}">
+            <img class=imgCaratula *ngIf="!lastSeason.poster_path" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ serie.poster_path }}">
+      <!--<img class="imgCaratula" src="https://image.tmdb.org/t/p/w220_and_h330_face{{ lastSeason.poster_path }}"> -->
+        </div>
+        <div class="info_season">
+        <h3> {{ lastSeason.name }} ({{ lastSeason.air_date | date:"yyyy"}})</h3>
+         <p> {{ lastSeason.overview }} </p>
+         
+         <h4> Episodios</h4>
+          <div class="lista_episodios" *ngFor="let episodio of lastSeason.episodes">
+               <table>
+                    <tr>
+                        <td><h4> {{ episodio.name }}  </h4></td>
+                        <td>({{ episodio.air_date | date:"dd/MM/yyyy" }})</td>
+                        <td>
+                            Puntacion del público:
+                            <mat-chip color="primary" selected>
+                              {{ episodio.vote_average}}
+                           </mat-chip>
+                        </td>
+                    </tr>
+                </table>
+                <p> {{ episodio.overview }}</p>
+                
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+

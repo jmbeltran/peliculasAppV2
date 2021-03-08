@@ -1,0 +1,24 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+mat-card {
+    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2px;
+}
+
+mat-card-content {
+    max-width: 150px;
+    height: 30px;
+}
+
+.buttonMas {
+    margin-top: 2px;
+
+}

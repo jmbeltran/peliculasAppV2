@@ -1,0 +1,18 @@
+<div class="content">
+    <mat-card class="example-card" *ngFor="let serie of seriesData">
+    <mat-card-header>
+    </mat-card-header>
+        <img mat-card-image src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ serie.poster_path }}">
+    <mat-card-content>
+        {{ serie.name }}
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" routerLink="/serie" (click)="sendParams(serie.id)"> + info </button>
+    </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="sesions">
+    {{ serie}}
+</div>
+

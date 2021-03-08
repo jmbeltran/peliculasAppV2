@@ -1,0 +1,17 @@
+<div class='principal'>
+    <h2>Peliculas más populares</h2>
+    <mat-progress-bar mode="indeterminate" *ngIf="!peliculasData"></mat-progress-bar>
+    <div class="peliculas" *ngIf="peliculasData">
+        <button mat-button *ngFor="let pelicula of peliculasData" routerLink="/pelicula" (click)="sendParamsMovie(pelicula.id, pelicula.title)">
+            <img class='image' src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ pelicula.poster_path }}" alt="">
+        </button>
+    </div>
+    <h2>Series más valoradas</h2>
+    <mat-progress-bar mode="indeterminate" *ngIf="!seriesData"></mat-progress-bar>
+    <div class="series" *ngIf="seriesData">
+        <button mat-button *ngFor="let serie of seriesData" routerLink="/serie" (click)="sendParamsTv(serie.id)">
+            <img class='image' src="https://image.tmdb.org/t/p/w220_and_h330_face/{{ serie.poster_path }}" alt="">
+        </button>
+        
+    </div>
+</div>

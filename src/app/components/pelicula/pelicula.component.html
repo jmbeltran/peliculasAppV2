@@ -1,0 +1,44 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<div class="body" *ngIf="!loading">
+    <div class="cabecera" [ngStyle]="{'background-image': 'url('+ urlFondo +')', 'background-size': 'cover'}">
+        <div class="caratula">
+            <img class="imgCaratula" src="{{ urlPoster }}">
+        </div>
+        <div class="info">
+            <h2>{{ pelicula.title }} · {{ pelicula.release_date | date: "yyyy"}}</h2>
+            <p>Fecha:{{ pelicula.release_date | date: "dd/MM/yyyy "}} </p>
+            <p> {{ pelicula.overview}}</p>
+            <mat-chip-list aria-label="Fish selection">
+                    Puntuación del público: 
+                    <mat-chip color="primary" selected>
+                    {{ pelicula.vote_average}}
+                </mat-chip>
+            </mat-chip-list>
+            <app-puntuacion [puntuacion]="pelicula.vote_average"
+            (newPuntuation)="userPuntuation($event)"></app-puntuacion>
+            <mat-chip-list>
+                Generos:
+                <mat-chip *ngFor="let genero of pelicula.genres">
+                    {{ genero.name }}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+        <div class="transparencia">
+
+        </div>
+    </div>
+    <div class="credits">
+        <mat-card class="example-card" *ngFor="let actor of credits">
+            <img mat-card-image *ngIf="actor.profile_path" src="https://www.themoviedb.org/t/p/w138_and_h175_face/{{ actor.profile_path }}">
+            <img mat-card-image *ngIf="!actor.profile_path" src="../../../assets/images/personajeSin.png">
+            <mat-card-content>
+                <p>
+                    {{ actor.name }}
+                </p>
+                <p>
+                    {{ actor.character }}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
