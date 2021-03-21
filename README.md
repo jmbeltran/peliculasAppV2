@@ -1,6 +1,7 @@
-# PeliculasApp
+# PeliculasApp v2
 
-Código correspondiente a la sesión X - Módulo de Aplicaciones Web lado cliente. 
+Solución a la Tarea 3 – mAW Cliente
+
 Usar `npm install` para instalar todas las dependencias una vez descargado este proyecto.
 
 ## Development server
